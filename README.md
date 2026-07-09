@@ -1,49 +1,49 @@
 <div align="center">
 
-#  AgroSense
+# 🚁 AgroSense
 
-### *AI-Powered Precision Agriculture Drone*
+### AI-Powered Precision Agriculture Drone
 
+Developed by **ArcNexus Labs**
 
-*"Empowering Farmers Through Edge AI and Autonomous Robotics"*
+*A student-led robotics & AI initiative*
 
----
+### 👥 Co-Founders
+
+**Aarush Pandit** • **Jeet Adatiya**
 
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
 ![Platform](https://img.shields.io/badge/Platform-ESP32%20%7C%20Raspberry%20Pi-blue)
-![Language](https://img.shields.io/badge/Language-C%2B%2B%20%7C%20Python-success)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Language](https://img.shields.io/badge/Language-C++%20%7C%20Python-success)
 
 </div>
 
 ---
 
-# Overview
+# 🌾 Overview
 
-AgroSense is a next-generation precision agriculture platform that combines **embedded systems**, **computer vision**, and **edge AI** to assist farmers with intelligent crop monitoring.
+AgroSense is an intelligent agricultural drone developed to improve crop monitoring through embedded systems, computer vision, and edge AI.
 
-The system is split into two independent subsystems:
+The platform consists of two interconnected subsystems:
 
-**Flight Control** — ESP32 + F722
-
-**Vision AI** — ESP32-CAM + Raspberry Pi
-
-Together they enable autonomous data collection and real-time crop analysis.
+- **Flight Control** — ESP32 communicating with the F722 Flight Controller for navigation and control.
+- **Vision System** — ESP32-CAM streaming live video to a Raspberry Pi for onboard AI inference.
 
 ---
 
-# Features
+# ✨ Features
 
--  Intelligent Flight Control
--  Live Wi-Fi Video Streaming
--  GPS Navigation
--  Edge AI Processing
--  Crop Disease Detection
--  Modular Embedded Architecture
+- 🚁 ESP32-Controlled Flight System
+- 📡 ESP32 ↔ F722 Communication
+- 🛰 GPS Navigation
+- 📷 ESP32-CAM Live Streaming
+- 🍓 Raspberry Pi Edge Computing
+- 🌱 AI Crop Disease Detection
+- ⚡ Modular Embedded Architecture
 
 ---
 
-# System Architecture
+# 🏗️ System Architecture
 
 ```mermaid
 flowchart LR
@@ -52,23 +52,23 @@ subgraph Flight_System
 GPS[🛰 GPS Module]
 ESP32[⚡ ESP32 Controller]
 F722[🎮 F722 Flight Controller]
-ESC[⚙️ ESCs]
-MOTORS[🚁 BLDC Motors]
+ESC[⚙ ESCs]
+MOTOR[🚁 BLDC Motors]
 
 GPS --> ESP32
 ESP32 -->|UART / MSP| F722
 F722 --> ESC
-ESC --> MOTORS
+ESC --> MOTOR
 end
 
 subgraph Vision_System
 CAM[📷 ESP32-CAM]
-PI[🍓 Raspberry Pi 4]
+PI[🍓 Raspberry Pi]
 AI[🧠 AI Engine]
 DISEASE[🌱 Disease Detection]
-DASH[📊 Dashboard]
+DASH[📊 Farmer Dashboard]
 
-CAM -->|Wi-Fi| PI
+CAM -->|Wi-Fi Stream| PI
 PI --> AI
 AI --> DISEASE
 DISEASE --> DASH
@@ -79,13 +79,13 @@ end
 
 # 🛠 Hardware
 
-| Component | Purpose |
-|-----------|---------|
-| ESP32 | Drone Controller |
+| Component | Function |
+|-----------|----------|
+| ESP32 | Main Controller |
 | F722 FC | Flight Stabilization |
-| ESP32-CAM | Live Video |
-| Raspberry Pi 4 | Edge AI |
-| GPS | Navigation |
+| ESP32-CAM | Video Streaming |
+| Raspberry Pi 4 | AI Processing |
+| GPS Module | Navigation |
 | ESCs | Motor Control |
 | BLDC Motors | Flight |
 | LiPo Battery | Power |
@@ -96,37 +96,35 @@ end
 
 | Embedded | AI | Tools |
 |----------|----|-------|
-| C++ | OpenCV | Arduino IDE |
-| Arduino | TensorFlow / YOLO *(Planned)* | Git |
-| UART | Python | VS Code |
-
----
-
+| Arduino | Python | Git |
+| C++ | OpenCV | VS Code |
+| ESP-IDF | TensorFlow Lite *(planned)* | Arduino IDE |
 
 ---
 
 # 📈 Development Roadmap
 
-- [x] Hardware Selection
 - [x] Drone Assembly
 - [x] ESP32 ↔ F722 Communication
 - [x] ESP32-CAM Streaming
 - [ ] Raspberry Pi AI Integration
-- [ ] Disease Detection Model
+- [ ] Crop Disease Detection
 - [ ] Autonomous Navigation
-- [ ] Field Testing
+- [ ] Field Trials
 
 ---
 
-# Vision
-Our goal is to build an affordable autonomous drone capable of assisting farmers through **AI-powered crop monitoring**, reducing manual inspection time and enabling data-driven agricultural decisions.
+# 👥 Team
 
----
+## ArcNexus Labs
 
-<div align="center">
+ArcNexus Labs is a student-led engineering initiative focused on robotics, embedded systems, AI, and precision agriculture.
 
-### Built with passion by **ArcNexus Labs**
+### Co-Founders
 
-*"Engineering Tomorrow's Agriculture."*
+**Aarush Pandit**
+**Jeet Adatiya**
 
-</div>
+### Mission
+
+Building affordable intelligent robotic systems for agriculture and beyond.
