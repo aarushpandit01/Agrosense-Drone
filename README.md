@@ -1,31 +1,27 @@
 # FALCON
 AI-powered agricultural drone built using ESP32, GPS, and embedded systems for precision farming.
-## 
-System Architecture
+## -System Architecture
 
 ```mermaid
 flowchart LR
 
+    GPS[GPS Module]
+    ESP32[ESP32 Flight Controller]
+    ESC[Electronic Speed Controllers]
+    MOTOR[BLDC Motors]
+
     CAM[ESP32-CAM]
     PI[Raspberry Pi 4]
-    AI[AI Inference Engine]
-    DD[Crop Disease Detection]
-    WD[Weed Detection]
+    AI[AI Inference]
+    DISEASE[Crop Disease Detection]
     DASH[Farmer Dashboard / Alerts]
 
-    GPS[NEO-6M GPS]
-    FC[F722 Flight Controller]
-    ESC[ESCs]
-    MOTOR[BLDC Motors]
+    GPS --> ESP32
+    ESP32 --> ESC
+    ESC --> MOTOR
 
     CAM -->|Wi-Fi Video Stream| PI
     PI --> AI
-    AI --> DD
-    AI --> WD
-    DD --> DASH
-    WD --> DASH
-
-    GPS --> FC
-    FC --> ESC
-    ESC --> MOTOR
+    AI --> DISEASE
+    DISEASE --> DASH
 ```
