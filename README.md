@@ -2,26 +2,32 @@
 AI-powered agricultural drone built using ESP32, GPS, and embedded systems for precision farming.
 ## -System Architecture
 
+## System Architecture
+
 ```mermaid
-flowchart LR
+flowchart TD
 
-    GPS[GPS Module]
-    ESP32[ESP32 Flight Controller]
-    ESC[Electronic Speed Controllers]
-    MOTOR[BLDC Motors]
+%% Flight Control
+GPS[GPS Module]
+ESP32[ESP32 Controller]
+F722[F722 Flight Controller]
+ESC[Electronic Speed Controllers]
+MOTORS[BLDC Motors]
 
-    CAM[ESP32-CAM]
-    PI[Raspberry Pi 4]
-    AI[AI Inference]
-    DISEASE[Crop Disease Detection]
-    DASH[Farmer Dashboard / Alerts]
+GPS --> ESP32
+ESP32 -->|UART / MSP| F722
+F722 --> ESC
+ESC --> MOTORS
 
-    GPS --> ESP32
-    ESP32 --> ESC
-    ESC --> MOTOR
+%% AI Pipeline
+CAM[ESP32-CAM]
+PI[Raspberry Pi 4]
+AI[Computer Vision & AI]
+DISEASE[Crop Disease Detection]
+ALERTS[Farmer Dashboard / Alerts]
 
-    CAM -->|Wi-Fi Video Stream| PI
-    PI --> AI
-    AI --> DISEASE
-    DISEASE --> DASH
+CAM -->|Wi-Fi Video Stream| PI
+PI --> AI
+AI --> DISEASE
+DISEASE --> ALERTS
 ```
